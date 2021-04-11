@@ -1,7 +1,7 @@
 import pathlib
 import tensorflow as tf
 
-class SemisegDataLoader():
+class SemisegDataLoader(resize_img=(128, 128)):
   """
   Keras - Tensorflow - Semiseg dataloader implementation
   
@@ -38,13 +38,13 @@ class SemisegDataLoader():
         image = tf.io.read_file(img_path)
         image = tf.image.decode_jpeg(image, channels=3)
         image = tf.image.convert_image_dtype(image, tf.uint8)
-        image = tf.image.resize(image, (128, 128))
+        image = tf.image.resize(image, resize_img)
         image = tf.cast(image, tf.float32) / 255.0
         return image
       else:
         mask = tf.io.read_file(img_path)
         mask = tf.image.decode_png(mask, channels=1)
-        mask = tf.image.resize(mask, (128, 128))
+        mask = tf.image.resize(mask, resize_img)
         mask = mask // 255 # normalize
         return mask
 
