@@ -1,0 +1,6 @@
+[build-system]
+requires = [
+  "tensorflow>2",
+  "numpy"
+]
+build-backend = "setuptools.build_meta"
