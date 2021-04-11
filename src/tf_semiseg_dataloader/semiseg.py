@@ -1,7 +1,7 @@
 import pathlib
 import tensorflow as tf
 
-class SemisegDataLoader(resize_img=(128, 128)):
+class SemisegDataLoader():
   """
   Keras - Tensorflow - Semiseg dataloader implementation
   
@@ -17,7 +17,7 @@ class SemisegDataLoader(resize_img=(128, 128)):
     self.te_masks_path = te_masks_path
   
 
-  def create_dataset(self):
+  def create_dataset(self, resize_img=(128, 128))):
     # Datadirs
     tr_imgs_datadir = pathlib.Path(self.tr_imgs_path)
     tr_masks_datadir = pathlib.Path(self.tr_masks_path)
