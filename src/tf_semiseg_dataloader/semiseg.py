@@ -17,7 +17,7 @@ class SemisegDataLoader():
     self.te_masks_path = te_masks_path
   
 
-  def create_dataset(self, resize_img=(128, 128))):
+  def create_dataset(self, resize_img=(128, 128)):
     # Datadirs
     tr_imgs_datadir = pathlib.Path(self.tr_imgs_path)
     tr_masks_datadir = pathlib.Path(self.tr_masks_path)
